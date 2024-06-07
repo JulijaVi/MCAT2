@@ -1,55 +1,40 @@
-function scoreInclusivity(content) {
-    const inclusivitySubcategories = {
-        'Youth Representation': {
-            questions: [
-                {
-                    text: "Does the article cite a person described as a ‘youth’ or ‘young person’ or include a citation from a person under 35 years of age, or is the topic about youth rights or issues?",
-                    scoreYes: 1,
-                    scoreNo: 0,
-                    keywords: ['youth', 'young person', 'under 35']
-                }
-            ]
-        },
-        'Inclusion of Minority Voices': {
-            questions: [
-                {
-                    text: "Does the story actively include and positively highlight the experiences, opinions, and stories of minority groups and traditionally excluded sectors?",
-                    scoreYes: 1,
-                    scoreNo: 0,
-                    keywords: ['minority groups', 'traditionally excluded sectors']
-                }
-            ]
-        },
-        // ... other subcategories
-    };
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('analysisForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const text = formData.get('textField');
+        const file = formData.get('fileUpload');
+        const url = formData.get('urlField');
+        const categories = formData.getAll('categories');
 
-    let totalScore = 0;
-    for (const subcategory in inclusivitySubcategories) {
-        const subcat = inclusivitySubcategories[subcategory];
-        subcat.questions.forEach(question => {
-            // Check if any keyword is in content
-            const hasKeywords = question.keywords.some(keyword => content.toLowerCase().includes(keyword.toLowerCase()));
-            totalScore += hasKeywords ? question.scoreYes : question.scoreNo;
-        });
-    }
-    return totalScore;
+        // Determine the type of submission and handle accordingly
+        if (text) {
+            analyzeText(text, categories);
+        } else if (file) {
+            uploadFile(file, categories);
+        } else if (url) {
+            scrapeURL(url, categories);
+        }
+    });
+});
+
+function analyzeText(text, categories) {
+    // Send text to the backend for analysis
+    // Update UI with results
+}
+
+function uploadFile(file, categories) {
+    // Upload file to the backend for analysis
+    // Update UI with results
+}
+
+function scrapeURL(url, categories) {
+    // Send URL to the backend to scrape and analyze
+    // Update UI with results
 }
 
 function updateResultsUI(analysisResults) {
     // Create and populate the table with categories and scores
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = ''; // Clear previous results
-
-    const table = document.createElement('table');
-    for (const category in analysisResults) {
-        const tr = document.createElement('tr');
-        const tdCategory = document.createElement('td');
-        tdCategory.textContent = category;
-        const tdScore = document.createElement('td');
-        tdScore.textContent = analysisResults[category];
-        tr.appendChild(tdCategory);
-        tr.appendChild(tdScore);
-        table.appendChild(tr);
-    }
-    resultsDiv.appendChild(table);
+    // Append the table to the DOM
 }
