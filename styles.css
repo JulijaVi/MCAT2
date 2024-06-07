@@ -1,0 +1,73 @@
+/* Main body styling */
+body {
+    background-color: #ffffff; /* White background */
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+h1 {
+    color: #075254; /* Dark teal color */
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #075254; /* Dark teal border */
+}
+
+/* Form inputs and labels */
+form label {
+    color: #075254; /* Dark teal color */
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="url"],
+form input[type="date"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #098b8e; /* Light teal border */
+}
+
+form input[type="file"] {
+    border: 1px solid #098b8e; /* Light teal border */
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Checkbox labels */
+form label[for="sources"],
+form label[for="structure"],
+form label[for="relevance"],
+form label[for="inclusivity"],
+form label[for="impartiality"] {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* Submit button styling */
+form button {
+    background-color: #d76427; /* Orange color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #99b83c; /* Lime green color */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
