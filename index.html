@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Content Analysis Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Media Content Analysis Tool</h1>
+    <form id="analysisForm">
+        <div>
+            <label for="textField">Text for Analysis:</label>
+            <textarea id="textField" name="textField" rows="4" cols="50" placeholder="Paste your article text here"></textarea>
+        </div>
+        <div>
+            <label for="fileUpload">Upload File:</label>
+            <input type="file" id="fileUpload" name="fileUpload" accept=".doc, .docx, .txt">
+        </div>
+        <div>
+            <label for="urlField">URL Submission:</label>
+            <input type="url" id="urlField" name="urlField" placeholder="Enter URL">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate">
+        </div>
+        <div>
+            <label>Categories for Analysis:</label>
+            <div>
+                <input type="checkbox" id="sources" name="categories" value="Sources">
+                <label for="sources">Sources</label>
+            </div>
+            <div>
+                <input type="checkbox" id="structure" name="categories" value="Structure">
+                <label for="structure">Structure</label>
+            </div>
+            <div>
+                <input type="checkbox" id="relevance" name="categories" value="Relevance">
+                <label for="relevance">Relevance</label>
+            </div>
+            <div>
+                <input type="checkbox" id="inclusivity" name="categories" value="Inclusivity">
+                <label for="inclusivity">Inclusivity</label>
+            </div>
+            <div>
+                <input type="checkbox" id="impartiality" name="categories" value="Impartiality">
+                <label for="impartiality">Impartiality</label>
+            </div>
+        </div>
+        <button type="submit">Analyze Content</button>
+    </form>
+    <script src="main.js"></script>
+</body>
+</html>
