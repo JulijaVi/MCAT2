@@ -9,22 +9,29 @@
 <body>
     <h1>Media Content Analysis Tool</h1>
     <form id="analysisForm">
+        <!-- Text Analysis Section -->
         <div>
             <label for="textField">Text for Analysis:</label>
             <textarea id="textField" name="textField" rows="4" cols="50" placeholder="Paste your article text here"></textarea>
         </div>
+        <!-- File Upload Section -->
         <div>
             <label for="fileUpload">Upload File:</label>
             <input type="file" id="fileUpload" name="fileUpload" accept=".doc, .docx, .txt">
         </div>
+        <!-- URL Submission Section -->
         <div>
             <label for="urlField">URL Submission:</label>
             <input type="url" id="urlField" name="urlField" placeholder="Enter URL">
+        </div>
+        <!-- Date Range Section -->
+        <div>
             <label for="startDate">Start Date:</label>
             <input type="date" id="startDate" name="startDate">
             <label for="endDate">End Date:</label>
             <input type="date" id="endDate" name="endDate">
         </div>
+        <!-- Categories for Analysis Section -->
         <div>
             <label>Categories for Analysis:</label>
             <div>
@@ -40,7 +47,7 @@
                 <label for="relevance">Relevance</label>
             </div>
             <div>
-                <input type="checkbox" id="inclusivity" name="categories" value="Inclusivity">
+                <input type="checkbox" id="inclusivity" name="categories" value="Inclusivity" onclick="toggleInclusivity()">
                 <label for="inclusivity">Inclusivity</label>
             </div>
             <div>
@@ -48,8 +55,39 @@
                 <label for="impartiality">Impartiality</label>
             </div>
         </div>
+        <!-- Inclusivity Subcategories Section -->
+        <div id="inclusivitySubcategories" style="display:none;">
+            <!-- Youth Representation -->
+            <div>
+                <label for="youthRepresentation">Youth Representation:</label>
+                <select id="youthRepresentation" name="youthRepresentation">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                <p>Does the article cite a person described as a ‘youth’ or ‘young person’ or include a citation from a person under 35 years of age, or is the topic about youth rights or issues?</p>
+            </div>
+            <!-- Inclusion of Minority Voices -->
+            <div>
+                <label for="minorityVoices">Inclusion of Minority Voices:</label>
+                <select id="minorityVoices" name="minorityVoices">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                <p>Does the story actively include and positively highlight the experiences, opinions, and stories of minority groups and traditionally excluded sectors?</p>
+            </div>
+            <!-- Additional Subcategories Here -->
+            <!-- ... -->
+        </div>
+        <!-- Submit Button -->
         <button type="submit">Analyze Content</button>
     </form>
     <script src="main.js"></script>
+    <script>
+        // Function to toggle the display of Inclusivity subcategories
+        function toggleInclusivity() {
+            var inclusivitySection = document.getElementById('inclusivitySubcategories');
+            inclusivitySection.style.display = inclusivitySection.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>
