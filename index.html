@@ -24,13 +24,6 @@
             <label for="urlField">URL Submission:</label>
             <input type="url" id="urlField" name="urlField" placeholder="Enter URL">
         </div>
-        <!-- Date Range Section -->
-        <div>
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate">
-            <label for="endDate">End Date:</label>
-            <input type="date" id="endDate" name="endDate">
-        </div>
         <!-- Categories for Analysis Section -->
         <div>
             <label>Categories for Analysis:</label>
@@ -47,7 +40,7 @@
                 <label for="relevance">Relevance</label>
             </div>
             <div>
-                <input type="checkbox" id="inclusivity" name="categories" value="Inclusivity" onclick="toggleInclusivity()">
+                <input type="checkbox" id="inclusivity" name="categories" value="Inclusivity" onclick="toggleSubcategories('inclusivitySubcategories')">
                 <label for="inclusivity">Inclusivity</label>
             </div>
             <div>
@@ -56,37 +49,52 @@
             </div>
         </div>
         <!-- Inclusivity Subcategories Section -->
-        <div id="inclusivitySubcategories" style="display:none;">
-            <!-- Youth Representation -->
+        <div id="inclusivitySubcategories" class="subcategory-section" style="display:none;">
             <div>
-                <label for="youthRepresentation">Youth Representation:</label>
-                <select id="youthRepresentation" name="youthRepresentation">
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                </select>
+                <input type="checkbox" id="youthRepresentation" name="subcategories" value="Youth Representation">
+                <label for="youthRepresentation">Youth Representation</label>
                 <p>Does the article cite a person described as a ‘youth’ or ‘young person’ or include a citation from a person under 35 years of age, or is the topic about youth rights or issues?</p>
             </div>
-            <!-- Inclusion of Minority Voices -->
             <div>
-                <label for="minorityVoices">Inclusion of Minority Voices:</label>
-                <select id="minorityVoices" name="minorityVoices">
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                </select>
+                <input type="checkbox" id="minorityVoices" name="subcategories" value="Inclusion of Minority Voices">
+                <label for="minorityVoices">Inclusion of Minority Voices</label>
                 <p>Does the story actively include and positively highlight the experiences, opinions, and stories of minority groups and traditionally excluded sectors?</p>
             </div>
-            <!-- Additional Subcategories Here -->
-            <!-- ... -->
+            <div>
+                <input type="checkbox" id="contentFormat" name="subcategories" value="Content Format">
+                <label for="contentFormat">Content Format</label>
+                <p>Does the format match any of these options: Reels, TikToks, short form articles, social media posts, or audiovisual content?</p>
+            </div>
+            <div>
+                <input type="checkbox" id="topicRelevance" name="subcategories" value="Topic Relevance">
+                <label for="topicRelevance">Topic Relevance</label>
+                <p>Does the primary topic of the story match any of these categories: Environment, social issues, human rights, inclusivity, health, reproductive rights, local politics?</p>
+            </div>
+            <div>
+                <input type="checkbox" id="subjectMatterBias" name="subcategories" value="Subject Matter Bias">
+                <label for="subjectMatterBias">Subject Matter Bias</label>
+                <p>Does the article clearly include a bias about the subject matter?</p>
+            </div>
+            <div>
+                <input type="checkbox" id="topicFocus" name="subcategories" value="Topic Focus">
+                <label for="topicFocus">Topic Focus</label>
+                <p>Is the topic of the article any of the following: women’s issues or rights, LGBTQ+ rights, rights of people with disabilities, ethnic or racial minority rights?</p>
+            </div>
+            <div>
+                <input type="checkbox" id="genderBiasLanguage" name="subcategories" value="Gender Bias in Language">
+                <label for="genderBiasLanguage">Gender Bias in Language</label>
+                <p>Does the text demonstrate gender bias by not using feminitives when appropriate? Does the text default to masculine pronouns when gender is unknown?</p>
+            </div>
         </div>
         <!-- Submit Button -->
         <button type="submit">Analyze Content</button>
     </form>
     <script src="main.js"></script>
     <script>
-        // Function to toggle the display of Inclusivity subcategories
-        function toggleInclusivity() {
-            var inclusivitySection = document.getElementById('inclusivitySubcategories');
-            inclusivitySection.style.display = inclusivitySection.style.display === 'none' ? 'block' : 'none';
+        // Function to toggle the display of subcategories
+        function toggleSubcategories(subcategoryId) {
+            var subcategorySection = document.getElementById(subcategoryId);
+            subcategorySection.style.display = subcategorySection.style.display === 'none' ? 'block' : 'none';
         }
     </script>
 </body>
